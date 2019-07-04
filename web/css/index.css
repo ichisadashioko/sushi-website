@@ -93,9 +93,6 @@ body {
     padding: 0;
     margin: 0 auto 50px auto;
     border-top: none;
-    border-bottom: 1px solid rgba(0, 0, 0, .15);
-    border-left: 0px solid rgba(0, 0, 0, .15);
-    border-right: 0px solid rgba(0, 0, 0, .15);
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 24px rgba(0, 0, 0, .8);
 }
@@ -245,8 +242,16 @@ a.title:hover {
 }
 
 .wrapper>.heading h1 {
-    font-weight: 800;
+    font-family: 'Alegreya Sans', Arial, sans-serif;
+    font-weight: 500;
     line-height: 32.8px;
+}
+
+.item>.heading h4 {
+    font-family: 'Alegreya Sans', Arial, sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 500;
 }
 
 .wrapper>.heading {
@@ -337,7 +342,6 @@ p {
 
 .section {
     margin-top: 16px;
-    border-bottom: 3px dotted rgba(0, 0, 0, .2);
     overflow: auto;
 }
 
@@ -596,6 +600,11 @@ table {
     background-color: rgba(0, 0, 0, 0);
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 22px;
 }
 
 .table thead th {
