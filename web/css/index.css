@@ -81,7 +81,7 @@ body {
     background-image: url(../images/wine.png);
     background-repeat: repeat-x;
     background-position: 0 0;
-    background-attachment: scoll;
+    background-attachment: scroll;
     background-size: auto;
 }
 
