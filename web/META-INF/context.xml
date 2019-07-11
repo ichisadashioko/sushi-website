@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/Sushi">
+<Environment name="cs" value="jdbc:sqlserver://localhost:2222;databaseName=Blogging;integratedSecurity=true;" type="java.lang.String" override="false"/>
+</Context>
