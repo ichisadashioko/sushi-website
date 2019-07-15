@@ -64,6 +64,8 @@ create table menu
 select *
 from menu
 
+select * from (select ROW_NUMBER() over(order by dc desc) as rownum, menu_name, menu_desc, dc from menu) as s where s.rownum > 0 and s.rownum <= 2
+
 -- food has (id, food_name, menu_id, price)
 drop table food
 
@@ -105,3 +107,12 @@ values
 	('Tofu Roll', 1, 5.50),
 	('Yellow Radish Roll', 1, 3.75),
 	('Rice Roll', 1, 3.25)
+
+select * from food
+
+select * from food
+where menu_name='fresh sushi'
+order by dc
+
+
+select * from food where menu_name='fresh sushi' order by dc

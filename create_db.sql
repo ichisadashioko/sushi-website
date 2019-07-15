@@ -37,7 +37,7 @@ go
 create table food
 (
     -- food_id int not null ,
-    food_name varchar(64) not null primary key,
+    food_name varchar(64) not null,
     -- menu_id int not null references menu(menu_id),
     menu_name varchar(128) not null references menu(menu_name),
     price float not null,

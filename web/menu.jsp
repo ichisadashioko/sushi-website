@@ -5,11 +5,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 	ServletContext context = getServletContext();
-	IndexView pageView = IndexController.getPageContent(context, request);
-	List<Banner> bList = pageView.getbList();
+	MenuView pageView = MenuController.getPageContent(context, request);
+
 	List<Integer> pageCounterItems = pageView.getPageCounterItems();
 	int pageNum = pageView.getPageNum();
 	int numPages = pageView.getNumPages();
+	List<Menu> mList = pageView.getmList();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Awesome Sushi Palace</title>
-		<link rel="stylesheet" href="css/_index.css">
+		<link rel="stylesheet" href="css/_menu.css">
 		<script src="js/select.js"></script>
 	</head>
 
@@ -39,83 +40,63 @@
 				</div>
 				<!-- this is the menu content -->
 				<div class="navbar">
-					<a class="active">Awesome Sushi Palace</a>
-					<a href="menu.jsp">Menu and Price list</a>
+					<a href="index.jsp">Awesome Sushi Palace</a>
+					<a class="active">Menu and Price list</a>
 					<a href="contact.jsp">Call Now</a>
 				</div>
 			</div>
 			<div class="content-wrapper" id="content">
 				<div class="container">
 					<div id="left" class="span9">
-						<div class="wrapper">
+						<div class="wrapper list list-prices">
+							<div class="heading">
+								<h1 class="page-title">Menu and Price list</h1>
+							</div>
 							<div class="content">
-								<div class="row-fluid layout5-row margins-topbottom padding-all">
-									<div class="sections-wrapper">
-										<div class="span12">
-											<div class="section article margins-on">
+								<div class="section">
+									<div class="content">
+										<div class="span8">
+											<div class="item">
 												<div class="heading wordwrapfix">
-													<h3>Welcome to Awesome Sushi Palace,</h3>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row-fluid layout5-row margins-topbottom padding-all">
-									<div class="sections-wrapper">
-										<div class="span12">
-											<div class="section article margins-on">
-												<div class="heading wordwrapfix">
-													<h3>Awesome Sushi Palace</h3>
+													<h4>Call Now! Order Now! Free delivery!</h4>
 												</div>
 												<div class="content">
-													<p><span>Awesome Sushi Palace Order here 512-796-1676</span></p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row-fluid layout5-row margins-topbottom padding-all">
-									<div class="sections-wrapper">
-										<div class="span12">
-											<div class="section article margins-on">
-												<div class="content">
-													<div class="img-simple span12">
-														<div class="image"><img src="images/sushi_01.jpg"></div>
-													</div>
+													<p>Order sushi , free delivery to your door.</p>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<%
-									for (int i = 0; i < bList.size(); i++) {
-										Banner b = bList.get(i);
+									for (int i = 0; i < mList.size(); i++) {
+										Menu m = mList.get(i);
 								%>
-								<div class="row-fluid layout5-row margins-topbottom padding-all">
-									<div class="sections-wrapper">
-										<div class="span12">
-											<div class="section article margins-on">
-												<div class="heading wordwrapfix">
-													<h3><%=b.getTitle()%></h3>
-												</div>
-												<div class="content">
-													<div class="img-simple span6 pull-left">
-														<div class="image"><img src="<%=b.getImg()%>"></div>
-													</div>
-													<%
-														String[] lines = b.getDesc().split("\n");
-														for (String line : lines) {
-													%>
-													<p><span><%=line%></span></p>
-													<%}%>
-												</div>
-											</div>
-										</div>
+								<div class="section">
+									<div class="content">
+										<table class="table">
+											<thead>
+												<tr>
+													<th><%=m.getName()%></th>
+													<th class="align-right">Price</th>
+												</tr>
+											</thead>
+											<%
+												List<Food> fl = m.getFoodList();
+												for (int j = 0; j < fl.size(); j++) {
+													Food f = fl.get(j);
+											%>
+											<tr>
+												<td><%=f.getName()%></td>
+												<td class="align-right">$<%=f.getFPrice()%></td>
+											</tr>
+											<%}%>
+										</table>
+										<p><%=m.getDesc()%></p>
 									</div>
 								</div>
 								<%}%>
-								<div class="page-container">Page <select id="page-control"><%for (int i = 1; i <= numPages; i++) {if (i == pageNum) {%><option value="<%=i%>" selected><%=i%></option><%} else {%><option value="<%=i%>"><%=i%></option><%}}%></select> of <%=numPages%></div>
 							</div>
+							<div class="page-container">Page <select id="page-control"><%for (int i = 1; i <= numPages; i++) {if (i == pageNum) {%><option value="<%=i%>" selected><%=i%></option><%} else {%><option value="<%=i%>"><%=i%></option><%}}%></select> of <%=numPages%></div>
 						</div>
 					</div>
 					<div id="right" class="span3">
