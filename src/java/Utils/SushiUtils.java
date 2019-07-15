@@ -5,6 +5,26 @@ import java.time.*;
 
 public class SushiUtils {
 
+	public static List<Integer> generateCounterItems(int visitorCount, int minDigits) {
+		List<Integer> retval = new ArrayList<>();
+		String str = Integer.toString(visitorCount);
+		if (str.length() < minDigits) {
+			int remainder = visitorCount;
+			for (int i = 0; i < minDigits; i++) {
+				retval.add(0, remainder % 10);
+				remainder /= 10;
+			}
+		} else {
+			int remainder = visitorCount;
+			while (remainder > 0) {
+				retval.add(0, remainder % 10);
+				remainder /= 10;
+			}
+
+		}
+		return retval;
+	}
+
 	public static String formatSQLDate(Date d) {
 		LocalDate ld = d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		int year = ld.getYear();
