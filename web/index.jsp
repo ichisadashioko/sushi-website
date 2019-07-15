@@ -31,7 +31,7 @@
 					<div class="title-wrapper">
 						<div class="title-wrapper-inner">
 							<div class="title">
-								<a href="index.html" class="title title-link">The Sushi Palace Restaurant</a>
+								<a href="index.jsp" class="title title-link">The Sushi Palace Restaurant</a>
 							</div>
 							<div class="subtitle">Welcome to this website</div>
 						</div>
@@ -39,9 +39,9 @@
 				</div>
 				<!-- this is the menu content -->
 				<div class="navbar">
-					<a class="active" href="index.html">Awesome Sushi Palace</a>
-					<a href="menu.html">Menu and Price list</a>
-					<a href="call.html">Call Now</a>
+					<a class="active">Awesome Sushi Palace</a>
+					<a href="menu.jsp">Menu and Price list</a>
+					<a href="contact.jsp">Call Now</a>
 				</div>
 			</div>
 			<div class="content-wrapper" id="content">

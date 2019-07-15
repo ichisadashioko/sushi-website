@@ -1,12 +1,12 @@
-x Add google-plus-svg line
+x Add google-plus svg line
 
 x Create visitor database
 x Design and create sushi database
 
-Split page css
+x Split page css
 
-index.jsp
+x index.jsp
 menu.jsp
-contact.jsp
+x contact.jsp
 
 x context.xml environment variable
