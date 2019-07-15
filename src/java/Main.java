@@ -1,13 +1,15 @@
 
-import javax.naming.*;
+import de.svenjacobs.loremipsum.LoremIpsum;
+
+
 
 public class Main {
 
-	public static void main(String[] args) throws Exception {
-		InitialContext ic = new InitialContext();
-		Context envCtx = (Context) ic.lookup("java:comp/env");
-
-		String cs = (String) envCtx.lookup("cs");
-		System.out.println(cs);
-	}
+    public static void main(String[] args) throws Exception {
+        LoremIpsum li = new LoremIpsum();
+        for(int i =0; i < 10; i++){
+            System.out.println(li.getParagraphs());
+//            System.out.println(li.getParagraphs(20));
+        }
+    }
 }

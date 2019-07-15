@@ -3,6 +3,8 @@ nbproject
 build.xml
 
 src/conf
-web/META-INF
 
 .ipynb_checkpoints
+build
+
+Suku*
