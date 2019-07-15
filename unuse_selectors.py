@@ -30,7 +30,6 @@ def extract_html(html_filename):
 
 def extract_css(css_filename):
     selector_list = []
-    css_filename = 'web/css/index.css'
     sheet = cssutils.parseFile(css_filename)
     for rule in sheet:
         if isinstance(rule, cssutils.css.cssstylerule.CSSStyleRule):
@@ -79,12 +78,15 @@ def selector_diff(html_files, css_files):
 
 if __name__ == "__main__":
     html_files = [
-        'web/index.html',
-        'web/menu.html',
+        # 'web/index.html',
+        # 'web/menu.html',
         'web/call.html',
     ]
     css_files = [
-        'web/css/index.css'
+        # 'web/css/index.css',
+        # 'web/css/_index.css',
+        # 'web/css/_menu.css',
+        'web/css/_contact.css',
     ]
 
     tags_diff, classes_diff = selector_diff(html_files, css_files)
